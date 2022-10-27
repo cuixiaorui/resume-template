@@ -1,5 +1,4 @@
 import { createSignal, createEffect } from 'solid-js';
-
 const ToggleTheme = () => {
   const [theme, setTheme] = createSignal(
     localStorage.getItem('theme') ?? 'light'
@@ -13,8 +12,11 @@ const ToggleTheme = () => {
     localStorage.setItem('theme', theme());
   });
   return (
-    <button onClick={() => setTheme(theme() === 'light' ? 'dark' : 'light')}>
-      {theme() === 'light' ? '🌙' : '🌞'}
+    <button
+      className="text-4xl flex-row-reverse"
+      onClick={() => setTheme(theme() === 'light' ? 'dark' : 'light')}
+    >
+      {theme() === 'light' ? '🌛' : '🌞'}
     </button>
   );
 };
